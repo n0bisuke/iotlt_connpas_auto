@@ -13,8 +13,7 @@ const sheets = google.sheets('v4');
 const readFileAsync = promisify(fs.readFile);
 const ssValuesGetAsync = promisify(sheets.spreadsheets.values.get);
 
-const TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE) + '/.credentials/';
-const TOKEN_PATH = TOKEN_DIR + 'sheets.googleapis.com-nodejs-quickstart.json';
+const TOKEN_PATH = __dirname+'/sheets.googleapis.com-nodejs-quickstart.json';
 
 const main = async () => {
     //クレデンシャル情報の取得
