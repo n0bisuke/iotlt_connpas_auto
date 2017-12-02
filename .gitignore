@@ -1,0 +1,6 @@
+node_modules
+libs/spreadsheet/client_secret.json
+libs/spreadsheet/sheets.googleapis.com-nodejs-quickstart.json
+libs/spreadsheet/backup_async.js
+libs/spreadsheet/backup.js
+libs/spreadsheet/hoge.js
