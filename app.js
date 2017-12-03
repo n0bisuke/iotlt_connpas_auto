@@ -59,7 +59,7 @@ const main = async () => {
 
 //定期実行
 const job1 = new cron.CronJob({
-    cronTime: '1 * * * * *', //5分毎に実行
+    cronTime: '*/60 * * * *', //*/60 * * * * 60分毎に実行
     onTick: () => main(), //メインの処理
     start: false,
     timeZone: 'Asia/Tokyo'
