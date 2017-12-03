@@ -66,7 +66,7 @@ const job1 = new cron.CronJob({
 });
 
 console.log('job1 status', job1.running); // job1 status undefined
-// job1.start(); // job 1 started
+job1.start(); // job 1 started
 console.log('job1 status', job1.running); // job1 status true
 
-main();
+// main();
