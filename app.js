@@ -9,6 +9,7 @@ const connpass = require('./libs/connpass'); //ターゲットとなるURLを生
 const getSpreadSheet = require('./libs/spreadsheet'); //スプレッドシートにアクセス
 const edit = require('./libs/edit'); //編集系
 const lineNotify = require('./libs/line'); //LINE通知系
+const LOGIN = require('./config'); //connpassログイン情報
 
 const main = async () => {
     console.log('connecting connpass...');
@@ -20,11 +21,12 @@ const main = async () => {
     const eventInfo = await connpass();
     const EVENT_URL = eventInfo.url;
     const EVENT_VOL = eventInfo.vol;
+    const EVENT_ENTRY_NUM = eventInfo.entryNum;
 
     //ログイン
     await page.goto(EVENT_URL);
-    await page.type(`input[name=username]`,process.env.CONNPASS_USER);
-    await page.type(`input[name=password]`,process.env.CONNPASS_PASS);
+    await page.type(`input[name=username]`, LOGIN.connpassuser);
+    await page.type(`input[name=password]`, LOGIN.connpasspass);
     await page.click(`#login_form button`);
 
     //概要を取得
@@ -52,7 +54,7 @@ const main = async () => {
     await page.close();
     browser.close();
 
-    lineNotify(`connpassを更新しました。 ${new Date()}`);
+    lineNotify(`connpassを更新しました。 ${new Date()}。現在参加者${EVENT_ENTRY_NUM}人です。`);
 };
 
 //定期実行
@@ -64,7 +66,7 @@ const job1 = new cron.CronJob({
 });
 
 console.log('job1 status', job1.running); // job1 status undefined
-job1.start(); // job 1 started
+// job1.start(); // job 1 started
 console.log('job1 status', job1.running); // job1 status true
 
-// main();
+main();

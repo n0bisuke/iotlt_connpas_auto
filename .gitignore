@@ -5,3 +5,4 @@ libs/spreadsheet/backup_async.js
 libs/spreadsheet/backup.js
 libs/spreadsheet/hoge.js
 .DS_Store
+config.js
