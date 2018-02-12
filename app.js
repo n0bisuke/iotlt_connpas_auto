@@ -11,9 +11,11 @@ const edit = require('./libs/edit'); //編集系
 const lineNotify = require('./libs/line'); //LINE通知系
 const LOGIN = require('./config'); //connpassログイン情報
 
+const HEADLESS = (process.platform === 'linux') ? true : false; // Linux(サーバー)で実行かどうかで挙動を変更
+
 const main = async () => {
     console.log('connecting connpass...');
-    const browser = await puppeteer.launch({headless: false});
+    const browser = await puppeteer.launch({headless: HEADLESS});
     const page = await browser.newPage();
     await page.emulate(iPhone);
 
