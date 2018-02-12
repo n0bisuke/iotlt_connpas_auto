@@ -22,7 +22,7 @@ const main = async () => {
     const EVENT_URL = eventInfo.url;
     const EVENT_VOL = eventInfo.vol;
     const EVENT_ENTRY_NUM = eventInfo.entryNum;
-
+    
     //ログイン
     await page.goto(EVENT_URL);
     await page.type(`input[name=username]`, LOGIN.connpassuser);
@@ -69,4 +69,5 @@ console.log('job1 status', job1.running); // job1 status undefined
 job1.start(); // job 1 started
 console.log('job1 status', job1.running); // job1 status true
 
-// main();
+//execフラグがある実行の場合は即実行
+if(process.env.EXEC === 'on') main();
