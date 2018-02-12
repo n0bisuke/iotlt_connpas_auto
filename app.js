@@ -13,7 +13,7 @@ const LOGIN = require('./config'); //connpassログイン情報
 
 const main = async () => {
     console.log('connecting connpass...');
-    const browser = await puppeteer.launch({headless: true});
+    const browser = await puppeteer.launch({headless: false});
     const page = await browser.newPage();
     await page.emulate(iPhone);
 

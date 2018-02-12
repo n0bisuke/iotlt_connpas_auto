@@ -4,5 +4,6 @@ libs/spreadsheet/sheets.googleapis.com-nodejs-quickstart.json
 libs/spreadsheet/backup_async.js
 libs/spreadsheet/backup.js
 libs/spreadsheet/hoge.js
+libs/spreadsheet/createOauth.js
 .DS_Store
 config.js
