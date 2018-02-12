@@ -7,3 +7,4 @@ libs/spreadsheet/hoge.js
 libs/spreadsheet/createOauth.js
 .DS_Store
 config.js
+.vscode
