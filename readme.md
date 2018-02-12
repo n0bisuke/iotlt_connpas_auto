@@ -1,8 +1,10 @@
 
+
+
 ## コマンド
 
 * npm start
-* npm deploy
+* npm run git-push
 
 ## 認証情報
 
