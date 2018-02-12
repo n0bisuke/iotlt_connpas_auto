@@ -6,8 +6,8 @@ const sheets = google.sheets('v4');
 const ssValuesGetAsync = promisify(sheets.spreadsheets.values.get);
 const getOauth2Client = require('./getOauth2Client.js');
 
-const spreadsheetId = `18w_DXUCU9jHtSEu97T1E0Ov6C0t2q8voLwE8yHl53dc`; //iotlt管理シート
-const targetArea = `A8:D28`;
+const spreadsheetId = require('./config').targetSheetID; //iotlt管理シート
+const targetArea = require('./config').targetSheetArea; //iotlt管理シートの対象エリア
 
 const main = async (EVENT_VOL) => {
     const oauth2Client = await getOauth2Client(); //Oauth2Clientの認証情報
