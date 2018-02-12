@@ -31,6 +31,7 @@ module.exports = {
     connpassuser: '',
     connpasspass: '',
     targetSheetID: '',
-    targetSheetArea: ''
+    targetSheetArea: '',
+    LINE_NOTIFY_TOKEN: ''
 }
 ```

@@ -4,7 +4,7 @@ const axios = require('axios');
 const qs = require('querystring');
 const BASE_URL = 'https://notify-api.line.me';
 const PATH =  '/api/notify';
-const LINE_TOKEN = `bDc9RBIVhzlv0Cx2gmvsplFSa8SluFFJO29yOUY6J4L`;
+const LINE_NOTIFY_TOKEN = require('../../config').LINE_NOTIFY_TOKEN; //LINE Notifyのトークン
 
 module.exports = async (mes) => {
     let config = {
@@ -13,7 +13,7 @@ module.exports = async (mes) => {
         method: 'post',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': `Bearer ${LINE_TOKEN}`
+            'Authorization': `Bearer ${LINE_NOTIFY_TOKEN}`
         },
         data: qs.stringify({
             message: mes,

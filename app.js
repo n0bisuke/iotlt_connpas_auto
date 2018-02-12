@@ -22,7 +22,7 @@ const main = async () => {
     const EVENT_URL = eventInfo.url;
     const EVENT_VOL = eventInfo.vol;
     const EVENT_ENTRY_NUM = eventInfo.entryNum;
-    
+
     //ログイン
     await page.goto(EVENT_URL);
     await page.type(`input[name=username]`, LOGIN.connpassuser);
@@ -49,11 +49,12 @@ const main = async () => {
     await page.click(`input[value=保存]`);
     console.log(`保存done`);
 
-    //撮影
+    //puppeteerの終了
     await page.waitFor(1000);
     await page.close();
     browser.close();
 
+    //LINE NotifyでLINE通知
     lineNotify(`connpassを更新しました。 ${new Date()}。現在参加者${EVENT_ENTRY_NUM}人です。`);
 };
 
